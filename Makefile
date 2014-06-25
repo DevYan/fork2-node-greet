@@ -1,14 +1,11 @@
-COMILE_DEST ?= lib
-COMILE_SRC ?= src
-
 package: test
-	@npm pack
+	npm pack
 
 test: compile
-	@npm test
+	mocha
 
 compile:
-	coffee --compile --output $(COMILE_DEST) $(COMILE_SRC)
+	coffee --compile --output lib src
 
 
 .PHONY: compile
